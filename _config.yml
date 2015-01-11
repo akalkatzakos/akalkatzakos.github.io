@@ -1,0 +1,25 @@
+# Dependencies
+markdown:            redcarpet
+highlighter:         pygments
+
+# Permalinks
+#
+# Use of `relative_permalinks` ensures post links from the index work properly.
+permalink:           pretty
+relative_permalinks: true
+
+# Setup
+title:               Thoughts from a code writer
+tagline:             'by Achilleas Kalkatzakos'
+url:                 http://akalkatzakos.github.io/
+baseurl:             /
+paginate:            5
+
+# About/contact
+author:
+  name:              Achilleas Kalkatzakos
+  url:               
+  email:             akalkatzakos@gmail.com
+
+# Custom vars
+version:             1.0.0
