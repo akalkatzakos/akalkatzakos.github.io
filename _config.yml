@@ -9,7 +9,7 @@ permalink:           pretty
 relative_permalinks: true
 
 # Setup
-title:               Thoughts from a code writer
+title:               Humble thoughts of a code writer
 tagline:             'by Achilleas Kalkatzakos'
 url:                 http://akalkatzakos.github.io/
 baseurl:             /
