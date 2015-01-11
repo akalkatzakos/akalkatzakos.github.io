@@ -9,7 +9,7 @@ permalink:           pretty
 relative_permalinks: true
 
 # Setup
-title:               Humble thoughts of a code writer
+title:               Humble Software notes
 tagline:             'by Achilleas Kalkatzakos'
 url:                 http://akalkatzakos.github.io/
 baseurl:             /
