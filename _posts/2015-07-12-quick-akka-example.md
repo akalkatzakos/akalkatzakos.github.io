@@ -251,7 +251,7 @@ Running the program for the correct answer 16 Jul prints the following self-desc
 + Albert received FoundWithHelp
 + Albert found: 16, Jul
 
-Running the progrma with another input having a unique day (e.g. 19 May) prints the following:
+Running the program with another input having a unique day (e.g. 19 May) prints the following:
 
 + App -> Start to Bernard
 + App -> Start to Albert 
