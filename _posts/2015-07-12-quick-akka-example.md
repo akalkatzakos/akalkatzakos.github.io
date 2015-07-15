@@ -239,6 +239,7 @@ libraryDependencies += "com.typesafe.akka" %% "akka-actor" % "2.1.2"
 ```
 
 Running the program for the correct answer 16 Jul prints the following self-describing information about the flow of messages:
+
 + App -> Start to Bernard
 + App -> Start to Albert 
 + Bernard received Start
@@ -251,6 +252,7 @@ Running the program for the correct answer 16 Jul prints the following self-desc
 + Albert found: 16, Jul
 
 Running the progrma with another input having a unique day (e.g. 19 May) prints the following:
+
 + App -> Start to Bernard
 + App -> Start to Albert 
 + Bernard received Start
