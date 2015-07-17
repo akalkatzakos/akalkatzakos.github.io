@@ -227,17 +227,7 @@ object getMonthsHavingUniqueDay {
 }
 ```
 
-The sbt file with Akka dependencies is
-
-```Scala
-name := "SimpleAkkaExample"
-
-version := "1.0"
-
-resolvers += "Typesafe Repository" at "http://repo.typesafe.com/typesafe/releases/"
-
-libraryDependencies += "com.typesafe.akka" %% "akka-actor" % "2.1.2"
-```
+For full details and the source code please check: [source code][2]
 
 Running the program for the correct answer 16 Jul prints the following self-describing information about the flow of messages:
 
@@ -265,3 +255,4 @@ Running the program with another input having a unique day (e.g. 19 May) prints 
 + Albert found also 19, May
 
 [1]: https://en.wikipedia.org/wiki/Cheryl%27s_Birthday
+[2]: https://github.com/akalkatzakos/quick-examples/tree/master/birthday-problem
