@@ -227,7 +227,8 @@ object getMonthsHavingUniqueDay {
 }
 ```
 
-sbt file with Akka dependencies are
+The sbt file with Akka dependencies is
+
 ```Scala
 name := "SimpleAkkaExample"
 
