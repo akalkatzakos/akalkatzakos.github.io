@@ -40,7 +40,9 @@ object FindSolutionApp extends App {
   val albert = system.actorOf(Props[Albert], name = "albert")
   val bernard = system.actorOf(Props[Bernard], name = "bernard")
 
-  val dates = (15, "May") ::(16, "May") ::(19, "May") ::(17, "Jun") ::(18, "Jun") ::(14, "Jul") :: (16, "Jul") ::(14, "Aug") ::(15, "Aug") ::(17, "Aug") :: Nil
+  val dates = (15, "May") ::(16, "May") ::(19, "May") ::(17, "Jun")
+    ::(18, "Jun") ::(14, "Jul") :: (16, "Jul") ::(14, "Aug") 
+    ::(15, "Aug") ::(17, "Aug") :: Nil
 
   println("App -> Start to Bernard")
   bernard ! StartBernard(16, dates, albert)
@@ -89,15 +91,18 @@ class Bernard extends Actor {
       matchingDates = dates.filter(_._1 == day)
       matchingDates.length match {
         case 1 => {
-          println("Bernard found: " + matchingDates.map { case ((k, v)) => k + ", " + v }.head)
-          println("Bernard -> Found to Albert")
-          albertRef ! Found
-          context.stop(self)
+            println("Bernard found: " 
+                + matchingDates.map { 
+                    case ((k, v)) => k + ", " + v }
+                .head)
+            println("Bernard -> Found to Albert")
+            albertRef ! Found
+            context.stop(self)
         }
         case 0 => {
-          println("Invalid Input not existing day in input list ")
-          println("Bernard -> No to Albert")
-          albertRef ! No
+            println("Invalid Input not existing day in input list ")
+            println("Bernard -> No to Albert")
+            albertRef ! No
         }
         case _ =>
       }
@@ -114,7 +119,10 @@ class Bernard extends Actor {
       // in case length is 1 we found it
       filterOutUniqueMonths.length match {
         case 1 => {
-          println("Bernard found: " + filterOutUniqueMonths.map { case ((k, v)) => k + ", " + v }.head)
+          println("Bernard found: " 
+            + filterOutUniqueMonths.map { 
+                case ((k, v)) => k + ", " + v }
+                .head)
           println("Bernard -> FoundWithHelp to App")
           sender ! FoundWithHelp
           context.stop(self)
@@ -152,7 +160,10 @@ class Albert extends Actor {
       matchingDates = dates.filter(p => p._2 == month)
       matchingDates.length match {
         case 1 => {
-          println("Albert found: " + matchingDates.map { case ((k, v)) => k + ", " + v }.head)
+          println("Albert found: " + 
+            matchingDates.map { 
+                case ((k, v)) => k + ", " + v }
+            .head)
           println("Albert -> Found to Bernard")
           bernard ! Found
           context.stop(self)
@@ -178,13 +189,22 @@ class Albert extends Actor {
     case FoundWithHelp => {
       println("Albert received FoundWithHelp")
       val monthsOfUniqueDays = getMonthsHavingUniqueDay(allDates)
-      // filter out months of unique days as Bernard found it but with help meaning it couldn't find it without help.
-      val remainingValidDates = allDates.filterNot(tuple => monthsOfUniqueDays.exists(_ == tuple._2))
-      val uniqueRemaining = remainingValidDates.groupBy(_._1).map { case (k, v) => (k, v.map(_._2)) }.filter(_._2.length == 1)
-      // filter from matching dates only the remaining valid dates and if this is 1 then we found it
-      matchingDates = matchingDates.filter(each => uniqueRemaining.exists(p => p._1 == each._1))
+      
+      // filter out months of unique days as Bernard found it 
+      // but with help meaning it couldn't find it without help.
+      val remainingValidDates = allDates.filterNot(
+        tuple => monthsOfUniqueDays.exists(_ == tuple._2))
+      val uniqueRemaining = remainingValidDates.groupBy(_._1)
+                                .map { case (k, v) => (k, v.map(_._2)) }
+                                .filter(_._2.length == 1)
+      // filter from matching dates only the remaining valid dates 
+      // and if this is 1 then we found it
+      matchingDates = matchingDates.filter(
+        each => uniqueRemaining.exists(p => p._1 == each._1))
       if (matchingDates.length == 1)
-        println("Albert found: " + matchingDates.map { case ((k, v)) => k + ", " + v }.head)
+        println("Albert found: " + 
+            matchingDates.map { case ((k, v)) => k + ", " + v }
+                .head)
       else
         println("Albert cannot find it")
     }
@@ -192,10 +212,14 @@ class Albert extends Actor {
     case Found => {
       println("Albert received Found")
       // should be unique since the other found it without help
-      val found = allDates.groupBy(_._1).map { case (k, v) => (k, v.map(_._2)) }
-        .filter(_._2.length == 1).filter(month => month._2.contains(inputMonth)).map { case (k, v) => k + ", " + v.head }
+      val found = allDates.groupBy(_._1)
+        .map { case (k, v) => (k, v.map(_._2)) }
+        .filter(_._2.length == 1)
+        .filter(month => month._2.contains(inputMonth))
+        .map { case (k, v) => k + ", " + v.head }
 
-      if (found.size == 1) println(s"Albert found also ${found.head}")
+      if (found.size == 1) 
+        println(s"Albert found also ${found.head}")
     }
 
     case No =>
@@ -221,7 +245,8 @@ object getMonthsHavingUniqueDay {
     // filter only the ones which have 1 month in the list
     val filterOnlyUniqueDays = monthsListPerDay.filter(_._2.length == 1)
 
-    // flat map of the remaining list of tuples for the second element (month)
+    // flat map of the remaining list of tuples 
+    // for the second element (month)
     filterOnlyUniqueDays.flatMap(dayMonths => dayMonths._2)
   }
 }
@@ -253,6 +278,7 @@ Running the program with another input having a unique day (e.g. 19 May) prints 
 + Bernard -> Found to Albert
 + Albert received Found
 + Albert found also 19, May
+
 
 [1]: https://en.wikipedia.org/wiki/Cheryl%27s_Birthday
 [2]: https://github.com/akalkatzakos/quick-examples/tree/master/birthday-problem
