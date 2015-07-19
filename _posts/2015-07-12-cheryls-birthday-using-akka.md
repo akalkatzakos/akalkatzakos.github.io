@@ -61,9 +61,11 @@ The messages exchanged are
 ```Scala
 class StartMessage(dates: List[(Int, String)])
 
-case class StartBernard(day: Integer, dates: List[(Int, String)], albert: ActorRef) extends StartMessage(dates)
+case class StartBernard(day: Integer, dates: List[(Int, String)], 
+    albert: ActorRef) extends StartMessage(dates)
 
-case class StartAlbert(month: String, dates: List[(Int, String)], bernard: ActorRef) extends StartMessage(dates)
+case class StartAlbert(month: String, dates: List[(Int, String)], 
+    bernard: ActorRef) extends StartMessage(dates)
 
 case object No
 
@@ -115,7 +117,8 @@ class Bernard extends Actor {
       println("Bernard received BothNo") 
       //means that no month belonging to unique day month list was given to Albert
       // so we need to filter out from the matching dates all the possible months containing unique days 
-      val filterOutUniqueMonths = matchingDates.filterNot(tuple => monthsOfUniqueDays.exists(_ == tuple._2))
+      val filterOutUniqueMonths = matchingDates.filterNot(
+        tuple => monthsOfUniqueDays.exists(_ == tuple._2))
       // in case length is 1 we found it
       filterOutUniqueMonths.length match {
         case 1 => {
@@ -195,16 +198,18 @@ class Albert extends Actor {
       val remainingValidDates = allDates.filterNot(
         tuple => monthsOfUniqueDays.exists(_ == tuple._2))
       val uniqueRemaining = remainingValidDates.groupBy(_._1)
-                                .map { case (k, v) => (k, v.map(_._2)) }
-                                .filter(_._2.length == 1)
+                            .map { 
+                                case (k, v) => (k, v.map(_._2)) }
+                            .filter(_._2.length == 1)
       // filter from matching dates only the remaining valid dates 
       // and if this is 1 then we found it
       matchingDates = matchingDates.filter(
         each => uniqueRemaining.exists(p => p._1 == each._1))
       if (matchingDates.length == 1)
         println("Albert found: " + 
-            matchingDates.map { case ((k, v)) => k + ", " + v }
-                .head)
+            matchingDates.map { 
+                case ((k, v)) => k + ", " + v }
+                    .head)
       else
         println("Albert cannot find it")
     }
