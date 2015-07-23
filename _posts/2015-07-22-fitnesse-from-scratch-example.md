@@ -123,7 +123,11 @@ java -jar fitnesse-standalone.jar -p 8080
 
 This sets up slim system and how to display included pages and contains all the paths containing application's and fixture code classes and jars.
 
-Remaining in the same page we add a new Static page with name SetUp. This is a file which needs to declare package imports for the fixture classes we will use later on in the test pages. The last line maps directly to an InitializeSystem class which will be explained later.
+Remaining in the same page we add a new Static page with name SetUp: 
+
+![static add][add_static]
+
+This is a file which needs to declare package imports for the fixture classes we will use later on in the test pages. The last line maps directly to an InitializeSystem class which will be explained later.
 
 ```
 |Import|
@@ -520,3 +524,4 @@ Our final query table is:
 [decimal_digits]: https://raw.githubusercontent.com/akalkatzakos/akalkatzakos.github.io/master/_images/20150722/decimal_digits.png
 [decimal_ok]: https://raw.githubusercontent.com/akalkatzakos/akalkatzakos.github.io/master/_images/20150722/decimal_ok.png
 [complete]: https://raw.githubusercontent.com/akalkatzakos/akalkatzakos.github.io/master/_images/20150722/complete.png
+[add_static]: https://raw.githubusercontent.com/akalkatzakos/akalkatzakos.github.io/master/_images/20150722/add_static.png
