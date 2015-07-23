@@ -111,6 +111,8 @@ java -jar fitnesse-standalone.jar -p 8080
 > Clicking on our new link again and then selecting edit we add the following:
 
 ```
+!contents -R2 -g -p -f -h
+
 !define TEST_SYSTEM {slim}
 !define COLLAPSE_SETUP {true}
 !define COLLAPSE_TEARDOWN {true}
