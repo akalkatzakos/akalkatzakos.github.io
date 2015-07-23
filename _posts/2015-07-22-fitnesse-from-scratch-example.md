@@ -391,7 +391,7 @@ Similarly for the amount per person per category results we define the following
 |name        |category        |amount        |
 ```
 
-> with the correspnding fixture class:
+> with the corresponding fixture class:
 
 ```Java
 public class AmountPerPersonPerCategoryQuery {
@@ -503,7 +503,7 @@ Our final query table is:
 ### Summary
 **FitNesse** is an excellent tool with many many options of which i believe the above described are sufficient for a great deal of applications. Most attractive to me is that it can easily involve into Acceptance Test Driven approaches, critical stakeholders of the application and so improve at the end your software quality. Business analysts can hit the FitNesse url and drive the development forward by providing test scenarios or they can even work just by using Excel if you use the excellent Export to Excel menu option of FitNesse!
 
-> All source code and FitNesse files are [here][2]
+> All source code and FitNesse files of the above example are [here][2].
 
 
 [1]: http://fitnesse.org
