@@ -178,7 +178,7 @@ public class AddTransaction {
 ```
 
 Our fixture class uses the same field names with our POJO. Setters in a fixture class are called
-whenever the property is defined as a table header. These setters run for every row and then after that the execute method runs which basically in our fixture code all that it does, is adding this new Transaction created in a global Repository object which contains data to be reused later on from other fixture classes (script table, query table). Last feature of a desicion table is to added accessor methods which execute after the execute method if there is a column with the same name end a ? at the end (we won't use it anyway).
+whenever the property is defined as a table header. These setters run for every row and then after that the execute method runs which basically in our fixture code all that it does, is adding this new Transaction created in a global Repository object which contains data to be reused later on from other fixture classes (script table, query table). Nothing to worry about concurrency issues regarding this global state holding object as each time you click test, FitNesse kicks off a new JVM process, so concurrent Tests run on separate virtual machines.  Last feature of a desicion table is to added accessor methods which execute after the execute method if there is a column with the same name end a ? at the end (we won't use it anyway).
 
 > Repository is a simple singleton object:
 
