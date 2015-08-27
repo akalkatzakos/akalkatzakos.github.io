@@ -54,7 +54,7 @@ html {
 }
 @media (min-width: 38em) {
   html {
-    font-size: 20px;
+    font-size: 18px;
   }
 }
 
@@ -174,7 +174,7 @@ pre {
 }
 pre code {
   padding: 0;
-  font-size: 75%;
+  font-size: 80%;
   color: inherit;
   background-color: transparent;
 }
