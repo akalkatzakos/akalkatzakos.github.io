@@ -151,7 +151,7 @@ After all this initial setup we are ready to start building our fixtures and our
 There are a lot of tables provided by FitNesse but in my humble opinion most applications can be easily tested with the following 3 tables using the pattern:
 
 * **Input** using **Decision tables**
-* **Calculation** using **Script tables**
+* **Processing** using **Script tables**
 * **Output** verification using **Query tables**
 
 Starting with the input we will use a decision table to be able to enter the list of transactions. Here is our corresponding fixture.
