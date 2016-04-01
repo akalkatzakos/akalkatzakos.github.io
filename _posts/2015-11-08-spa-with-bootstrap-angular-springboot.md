@@ -11,8 +11,8 @@ In this sense backend is now responsible only to provide the required Json paylo
 Benefits of this way of building SPA are the following:
 
 1. Separate teams having backend and frontend as only a definition of the JSON API is required and both can work independently from then on.
-+ Much easier testing of the front or the back end
-+ Much easier integration of other clients (f.e. mobile app) consuming the same JSON Api therefore allowing you easy expansion to other devices
+1. Much easier testing of the front or the back end
+1. Much easier integration of other clients (f.e. mobile app) consuming the same JSON Api therefore allowing you easy expansion to other devices
 
 In this post we are going to build a simple SPA with CRUD operations for a simple Bookmarks application where the user can view/edit/save/delete bookmarks grouped in categories. For the backend part we will use Spring Boot and Mongodb and for the front end we will use AngularJS and Bootstrap.  
 For demonstration purposes and in order to be able to cover more things related to AngulaJS the application's page has 2 tabs.
@@ -28,6 +28,7 @@ For demonstration purposes and in order to be able to cover more things related 
 ---
 
 ## Backend
+
 ### Setup
 Starting with the Backeend whose sole responsibility is to reply to Http requests with JSON payload we will utilise the Spring Boot framework which makes all the setup very easy. Opening [**Start Spring IO**] [start_spring_io] we are in a web application where we can define what we need for our project and generate at the end a zip file which we can use as the skeleton of our project. We need only __Web__ and __MongoDb__.  
 After we extract the project we are good to go. One last setup test is to start on a directory of our choice the mongoDB by running _mongod -dbpath database/_
@@ -126,12 +127,12 @@ For our application we will have 2 AngularJS controllers, each one handling each
 Our application is composed of:
 
 1. an index.html file which defines the entry point to our app.
-+ an app.js file which defines our routes to our modules
-+ controllers folder with js files defining the brain of each module
-+ partials folder with html files defining the view of our application
-+ services folder with common javascript functionality shared betwenn modules
-+ css folder with the standard bootstrap css and our custom one
-+ js folder with angular javascript files and the ui-bootstap one
+2. an app.js file which defines our routes to our modules
+2. controllers folder with js files defining the brain of each module
+2. partials folder with html files defining the view of our application
+2. services folder with common javascript functionality shared betwenn modules
+2. css folder with the standard bootstrap css and our custom one
+2. js folder with angular javascript files and the ui-bootstap one
 
 
  Every request hits this html and particular suffixes in the urls starting with the hash # define the particular parts of our application that we want to visit. This routing is controlled by the app.js file:
@@ -338,7 +339,6 @@ The result:
 ## Conclusion
 Building Web apps on the Java space has never been easier even for a backend developer. Spring Boot makes building RESTFUL APIs piece of cake and the same is done in the front end with frameworks like Angular and Bootstrap. As always of course someone needs to know the important stuff of all the underlying technologies like Java, Javascript, Html/CSS and Javascript. It is just that now the level of abstraction a developer is working with has been shifted upwards removing details and focusing on the important things.
 
-###  
 
 [bookmarks_list]: https://raw.githubusercontent.com/akalkatzakos/akalkatzakos.github.io/master/_images/20151120/bookmarks_list.png
 
