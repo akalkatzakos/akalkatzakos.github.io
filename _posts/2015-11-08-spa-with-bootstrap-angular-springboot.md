@@ -157,7 +157,7 @@ This mapping is quite straightforward. As an example if we call url _http://loca
 then the ListBookmarkController will execute using as a template the file bookmark_list.html.
 The source code for one of the controllers is the following:
 
-```Javascript
+``` javascript
 // Common pattern when defining a controller 
 (function() {
 
@@ -251,7 +251,7 @@ The source code for one of the controllers is the following:
 
 And the template file which this controller uses is:
 
-```html
+``` html
 
 <div class="container">
 	<script type="text/ng-template" id="deleteTemplate.html">
@@ -312,7 +312,7 @@ And the template file which this controller uses is:
 In the template file, functions and objects declared in the js file are referenced in the common
 MVC Angular way. Special Bootstrap classes make much more attractive our UI. Angular helps us accomplish functionality which would require much more Js + CSS work. One example is the typeahead feature of Angular for the folder name:
 
-```html
+``` html
 <label>Folder </label> <input type="text" ng-model="bookmark.folder"
 	typeahead="folder.name for folder in folders | filter: $viewValue: startsWith" class="form-control"
 	placeholder="Start typing for a folder">
@@ -325,7 +325,7 @@ when the user starts writing the name of the folder then the already created fol
 Another very nice thing is that there already a lot of ready to use Bootstrap components that with simple copy past can be cusomised easily. One such example is class badge with which you can inform the use how many bookmarks exist in one folder:
 
 
-```Html
+``` html
         <button type="button" ng-repeat="folder in folders" ng-click="getBookmarksInFolder(folder.name)" class="btn btn-default">
 		{{ folder.name }} <span class="badge">{{folder.count}}</span>
         </button>

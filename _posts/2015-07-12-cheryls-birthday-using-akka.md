@@ -32,7 +32,7 @@ the following data:
 * the day to Bernard and the month to Albert
 * references to ecah other so that then they can have their own dialog
 
-```Scala
+```scala
 import akka.actor._
 
 object FindSolutionApp extends App {
@@ -58,7 +58,7 @@ object FindSolutionApp extends App {
 
 The messages exchanged are
 
-```Scala
+```scala
 class StartMessage(dates: List[(Int, String)])
 
 case class StartBernard(day: Integer, dates: List[(Int, String)], 
@@ -76,10 +76,9 @@ case object Found
 case object FoundWithHelp
 
 ```
-
 Actor representing Bernard waits initially only a **StartBernard** message and after it arrives, it processes and either finishes if the birthday is found or continues exchanging message to Albert and changing receive state so as to wait for further communication from Albert.
 
-```Scala
+```scala
 class Bernard extends Actor {
   var matchingDates: List[(Int, String)] = Nil
   var monthsOfUniqueDays: Iterable[String] = Nil
@@ -146,7 +145,7 @@ class Bernard extends Actor {
 
 Actor representing Albert similarly waits only a **StartAlbert** message initially and after it arrives, it processes and either finishes if the birthday is found or continues exchanging message to Bernard and changing receive state so as to wait for further communication from Bernard.
 
-```Scala
+```scala
 class Albert extends Actor {
   var matchingDates: List[(Int, String)] = Nil
   var allDates: List[(Int, String)] = Nil
@@ -239,7 +238,7 @@ class Albert extends Actor {
 
 a simple utility object has been used to return a List of months having unique days
 
-```Scala
+```scala
 object getMonthsHavingUniqueDay {
   def apply(dates: List[(Int, String)]): Iterable[String] = {
     // map of day to List of Months having this day (foldLeft)

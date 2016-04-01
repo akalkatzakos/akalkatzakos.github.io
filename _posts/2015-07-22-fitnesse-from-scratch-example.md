@@ -19,7 +19,7 @@ However there is in my humble opinion a small disadvantage which is the initial 
 So lets say we have a minimal application in the form of jar or classes folder which displays statistics for user's transactions per month and per spending category. The application is composed by a POJO class describing a transaction
 and by a processing class that performs the analysis and returns back maps of information. I used Java 8 streams to refresh also a bit my knowledge of how functional kind of things look like on Java.
 
-```Java
+```java
 // constructor and accessors omitted
 public class Transaction {
 	String name;
@@ -156,7 +156,7 @@ There are a lot of tables provided by FitNesse but in my humble opinion most app
 
 Starting with the input we will use a decision table to be able to enter the list of transactions. Here is our corresponding fixture.
 
-```Java
+```java
 public class AddTransaction {
 	private String name;
 	private BigDecimal amount;
@@ -182,7 +182,7 @@ whenever the property is defined as a table header. These setters run for every 
 
 > Repository is a simple singleton object:
 
-```Java
+```java
 public class Repository {
 
 	private static Repository instance;
@@ -207,7 +207,7 @@ public class Repository {
 
 > There exists inside this class also a refresh method which creates a new object so that we start with a fresh Repository containing its test data (quite useful when we execute a test suite). This refresh method is called by the InitializeSystem class mentioned before which as is included to run in the SetUp page is running before any test.
 
-```Java
+```java
 public class InitializeSystem {
 	public InitializeSystem() {
 		Repository.refresh();
@@ -242,7 +242,7 @@ public class InitializeSystem {
 
 > Reason for these problems is that there are no converters from the text type of the scripts to the BigDecimal and Date types that  are required (as arguments in their setters methods) for fields amount and date. The 2 missing converters are the following:
 
-```Java
+```java
 public class BigDecimalConverter implements Converter<BigDecimal> {
 
 	@Override
@@ -287,7 +287,7 @@ public class MyDateConverter implements Converter<Date> {
 
 > And we need also to register them in the InitializeSystem:
 
-```Java
+```java
 public InitializeSystem() {
 		fitnesse.slim.converters.ConverterRegistry.addConverter(
 				BigDecimal.class, new BigDecimalConverter());
@@ -332,14 +332,14 @@ Our query table for the total per person results is the following (Query tables 
 > In the above as you can see we haven't specified any expected result yet as we are bored to do the calculations by hand ;)
 
 The fixture class needed for this case can be any class with a method signature of:
-```Java
+```java
 public List<Object> query() 
 ```
 acting as an adaptor basically between the application's results and the FitNesse expected tabular form.
 
 > In detail our fixture for this is:
 
-```Java
+```java
 public class AmountPerPersonQuery {
 
 	public List<Object> query() {
@@ -393,7 +393,7 @@ Similarly for the amount per person per category results we define the following
 
 > with the corresponding fixture class:
 
-```Java
+```java
 public class AmountPerPersonPerCategoryQuery {
 
 	public List<Object> query() {
@@ -446,7 +446,7 @@ As before we add the expected results but with up to 2 decimal digits this time:
 
 To solve this problem we need to add a so called custom comparator and register it inside a file named plugins.properties in the same folder where FitNesse starts. This comparator will basically match BigDecimals up to the 2nd decimal digit.
 
-```Java
+```java
 public class BigDecimalComparator implements CustomComparator {
 	private static final int SCALE_BY = 2;
 
