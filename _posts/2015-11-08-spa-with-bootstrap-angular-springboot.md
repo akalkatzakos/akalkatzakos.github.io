@@ -36,7 +36,7 @@ After we extract the project we are good to go. One last setup test is to start 
 ### Model
 Our model is very simple, just a Pojo representing the Bookmark entity we want to work with.
 
-```Java
+``` java
 
 import org.springframework.data.annotation.Id;
 
@@ -65,7 +65,7 @@ We proceed  with defining our _Controller_ class which will contain all of the r
 
 A GET and a POST operation will be shown here as the rest follow the same coding pattern.  
 
-```Java
+``` java
 	@Inject
 	private BookmarkRepository bookmarkRepository;
 
@@ -92,7 +92,7 @@ A GET and a POST operation will be shown here as the rest follow the same coding
 
 After the injection of the repository, we declare a GET method which returns all the bookmarks using the _findAll_ method of the repository. A _ResponseEntity_ object is returned which is SPring way of encapsulating a response body along with a response header. An _OK(200)_ code is retuned in this case. The POST method uses again the injected repository to do the save and then builds a _CREATED(201)_ response with a location header of the url where this link will be available. In our example this will be something of the form _http://localhost:8080/bookmarks/565a1de077c88fe61a7d06b5_. For this request to be served we need yet a other GET request method:
 
-```Java
+``` java
 
 	@RequestMapping(value = "/{bookmarkId}", method = RequestMethod.GET)
 	public ResponseEntity<?> getBookmark(@PathVariable String bookmarkId) {
@@ -119,7 +119,6 @@ The rest of the methods follow similar patter and define other url endpoints to 
 
 ## Frontend
 
-###
 For our application we will have 2 AngularJS controllers, each one handling each of the tabs we have. The files that compose the frontend pat of the application have the following structure:
 
 ![Front End tree structure][front-end-structure]
@@ -137,7 +136,7 @@ Our application is composed of:
 
  Every request hits this html and particular suffixes in the urls starting with the hash # define the particular parts of our application that we want to visit. This routing is controlled by the app.js file:
 
-```Javascript
+``` javascript
 bookmarkApp.config(function($routeProvider) {
 	$routeProvider.when("/bookmark", {
 		controller : 'BookmarkController',
