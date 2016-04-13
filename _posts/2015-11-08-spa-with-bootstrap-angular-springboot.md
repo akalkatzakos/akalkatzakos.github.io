@@ -336,7 +336,7 @@ The result:
 ![Number of bookmarks][number-of-bookmarks]
 
 ## Conclusion
-Building Web apps on the Java space has never been easier even for a backend developer. Spring Boot makes building RESTFUL APIs piece of cake and the same is done in the front end with frameworks like Angular and Bootstrap. As always of course someone needs to know the important stuff of all the underlying technologies like Java, Javascript, Html/CSS and Javascript. It is just that now the level of abstraction a developer is working with has been shifted upwards removing details and focusing on the important things.
+Building Web apps on the Java space has never been easier even for a backend developer. Spring Boot makes building RESTFUL APIs piece of cake and the same is done in the front end with frameworks like Angular and Bootstrap. As always of course someone needs to know the important stuff of all the underlying technologies like Java, Javascript, Html/CSS and Javascript. It is just that now the level of abstraction a developer is working with has been shifted upwards removing details and focusing on the important things. Full source code is available at  [**Source Code**] [source-code]
 
 
 [bookmarks_list]: https://raw.githubusercontent.com/akalkatzakos/akalkatzakos.github.io/master/_images/20151120/bookmarks_list.png
@@ -354,3 +354,5 @@ Building Web apps on the Java space has never been easier even for a backend dev
 [typeahead]: https://raw.githubusercontent.com/akalkatzakos/akalkatzakos.github.io/master/_images/20151120/typeahead.png
 
 [number-of-bookmarks]: https://raw.githubusercontent.com/akalkatzakos/akalkatzakos.github.io/master/_images/20151120/number-of-bookmarks.png
+
+[source-code]: https://github.com/akalkatzakos/bookmarks-spa
