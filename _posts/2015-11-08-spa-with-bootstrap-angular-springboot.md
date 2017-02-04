@@ -36,7 +36,7 @@ After we extract the project we are good to go. One last setup test is to start 
 ### Model
 Our model is very simple, just a Pojo representing the Bookmark entity we want to work with.
 
-#+BEGIN_SRC java
+``` java
 
 import org.springframework.data.annotation.Id;
 
@@ -53,7 +53,7 @@ public class Bookmark {
 
 }
 
-#+END_SRC
+```
 
 ### Logic
 Our codebase already contains a generated class ending in Application which is annotated with _SpringBootApplication_ and it is basically the one which will be used to start our application. Because of the annotation also it scans and wires up all Spring object we declare like Controllers, Services etc...    
